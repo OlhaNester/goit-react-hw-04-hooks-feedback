@@ -1,29 +1,27 @@
-import { useState } from 'react';
-import Statistics from './component/Statistics';
-import FeedbackOptions from './component/FeedbackOptions';
-import Section from './component/Section';
-import Notification from './component/Notification';
-import { AppContainer, Doyoulike } from './App.styled';
-
-
+import { useState } from "react";
+import Statistics from "./component/Statistics";
+import FeedbackOptions from "./component/FeedbackOptions";
+import Section from "./component/Section";
+import Notification from "./component/Notification";
+import { AppContainer, Doyoulike } from "./App.styled";
 
 export default function App() {
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
-  const options = ['good', 'neutral', 'bad'];
+  const options = ["good", "neutral", "bad"];
 
-  const handleChange = event => {
-        switch (event.target.name) {
-      case 'good':
-        console.log(setGood(state => state + 1));
+  const handleChange = (event) => {
+    switch (event.target.name) {
+      case "good":
+        setGood((state) => state + 1);
         break;
-      case 'neutral':
-        setNeutral(state => state + 1);
+      case "neutral":
+        setNeutral((state) => state + 1);
         break;
-      case 'bad':
-        setBad(state => state + 1);
+      case "bad":
+        setBad((state) => state + 1);
         break;
       default:
         return;
@@ -31,37 +29,33 @@ export default function App() {
   };
 
   const total = good + neutral + bad;
-  
+
   const countPositiveFeedbackPercentage = () => {
-     return Math.round((good / total) * 100);
-   };
+    return Math.round((good / total) * 100);
+  };
   return (
-     <AppContainer>
-        <Doyoulike> Do you like our coffee?</Doyoulike>
-        <Section title="Please leave feedback">
-          <FeedbackOptions
-            options={options}
-            onLeaveFeedback={handleChange}
-          />
+    <AppContainer>
+      <Doyoulike> Do you like our coffee?</Doyoulike>
+      <Section title="Please leave feedback">
+        <FeedbackOptions options={options} onLeaveFeedback={handleChange} />
       </Section>
-      
 
-        <Section title="Statistic">
-          {total === 0 ? (
-            <Notification message="There is no feedback"></Notification>
-          ) : (
-            <Statistics
-              good={good} neutral={neutral} bad={bad}
-              total={total}
-              positivePercentage={countPositiveFeedbackPercentage()}
-            />
-          )}
-        </Section> 
-      </AppContainer>
+      <Section title="Statistic">
+        {total === 0 ? (
+          <Notification message="There is no feedback"></Notification>
+        ) : (
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={total}
+            positivePercentage={countPositiveFeedbackPercentage()}
+          />
+        )}
+      </Section>
+    </AppContainer>
   );
-};
-
-
+}
 
 // export class AppOld extends Component {
 //   state = {
