@@ -1,0 +1,11 @@
+{
+  "files": {
+    "main.js": "/goit-react-hw-04-hooks-feedback/static/js/main.d3b6e826.js",
+    "static/media/hero.png": "/goit-react-hw-04-hooks-feedback/static/media/hero.ad74bbf6292af33426f9.png",
+    "index.html": "/goit-react-hw-04-hooks-feedback/index.html",
+    "main.d3b6e826.js.map": "/goit-react-hw-04-hooks-feedback/static/js/main.d3b6e826.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.d3b6e826.js"
+  ]
+}
